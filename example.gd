@@ -24,12 +24,12 @@ func demo_function(f: Callable, static_class_name: String) -> void:
 	args = with_rich_color(args, ARGS_COLOR)
 	var called_obj: String = with_rich_color(static_class_name, CLASS_COLOR)
 	var called_function: String = with_rich_color("." + f.get_method() + "("+ args + ")", FUNC_COLOR)
-	var call: String = called_obj + called_function
+	var call_name: String = called_obj + called_function
 	var result: String = with_rich_color(as_string(f.call()), RESULT_COLOR)
-	print_rich(call + with_rich_color("   --->   ", TRANSITION_COLOR) + result)
+	print_rich(call_name + with_rich_color("   --->   ", TRANSITION_COLOR) + result)
 
-func with_rich_color(str: String, color: Color) -> String:
-	return "[color=\""+color.to_html()+"\"]" + str + "[/color]"
+func with_rich_color(text: String, color: Color) -> String:
+	return "[color=\""+color.to_html()+"\"]" + text + "[/color]"
 	
 func as_string(obj: Variant) -> String:
 	return ("'" + obj + "'") if obj is String else str(obj)
