@@ -1,6 +1,17 @@
 class_name Vec2
 ## Useful methods to do stuff with Vector2
 
+
+## Creates a random [Vector2]
+static func random(min_length: float = 0.0, max_length: float = 1.0, min_angle: float = 0.0, max_angle: float = TAU) -> Vector2:
+	return Vector2(randf_range(min_length, max_length), 0.0).rotated(randf_range(min_angle, max_angle))
+
+
+## Creates a random, normalized (length == 1.0) [Vector2]
+static func random_normalized(min_angle: float = 0.0, max_angle: float = TAU) -> Vector2:
+	return Vector2.RIGHT.rotated(randf_range(min_angle, max_angle))
+
+
 ## Swaps the x- and y-value
 static func swap(vector: Vector2) -> Vector2:
 	return Vector2(vector.y, vector.x)
