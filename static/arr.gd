@@ -13,3 +13,10 @@ static func occurrences(array: Array) -> Dictionary:
 			continue
 		dict[value] = array.count(value)
 	return dict
+
+## Appends a value to an array if the array does not yet contain the value.
+static func append_distinct(arr: Array, val: Variant) -> Array:
+	if arr.has(val):
+		return arr
+	arr.append(val)
+	return arr
