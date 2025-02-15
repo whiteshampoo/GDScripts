@@ -151,3 +151,29 @@ static func rotate(vec: Vector3i,rotation_steps:int)->Vector3i:
 	
 
 #endregion
+
+
+#region RANGE
+
+## Returns coordinates in range of a given axial coordinate.
+static func cells_in_range_axial(of_axial_position:Vector2i,cell_range:int)->Array[Vector2i]:
+	var cells : Array[Vector2i] = []
+	var q = -cell_range
+	while q <= cell_range:
+		var r = max(-cell_range, -q-cell_range)
+		while r <= min(cell_range,-q+cell_range):
+			cells.append(Hex.axial_add(of_axial_position,Vector2i(q,r)))
+			r+=1
+		q+=1 
+	return cells
+
+## Returns coordinates in range of a given oddq coordinate.
+static func cells_in_range_oddq(of_oddq_position:Vector2i,cell_range:int)->Array[Vector2i]:
+	var of_position_axial = Hex.oddq_to_axial(of_oddq_position)
+	var cells = cells_in_range_axial(of_position_axial,cell_range)
+	for i in range(cells.size()):
+		cells[i] = Hex.axial_to_oddq(cells[i])
+	return cells
+
+
+#endregion
