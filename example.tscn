@@ -1,6 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://yner40qx8v64"]
+[gd_scene load_steps=6 format=3 uid="uid://yner40qx8v64"]
 
 [ext_resource type="Script" path="res://example.gd" id="1_gc22w"]
+[ext_resource type="Shader" path="res://shader/canvas_item/gradient/simple_gradient_left_to_right.gdshader" id="2_typqp"]
+[ext_resource type="Shader" path="res://shader/canvas_item/gradient/simple_gradient_top_to_bottom.gdshader" id="3_6vmkr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3j7ss"]
+shader = ExtResource("2_typqp")
+shader_parameter/color_a = Color(1, 0, 0, 1)
+shader_parameter/color_b = Color(0, 1, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kik5b"]
+shader = ExtResource("3_6vmkr")
+shader_parameter/color_a = Color(1, 1, 1, 0)
+shader_parameter/color_b = Color(0, 0, 1, 1)
 
 [node name="Example" type="Node"]
 script = ExtResource("1_gc22w")
+
+[node name="RedToGreen" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_3j7ss")
+custom_minimum_size = Vector2(64, 64)
+offset_left = 119.0
+offset_top = 76.0
+offset_right = 119.0
+offset_bottom = 76.0
+
+[node name="AlphaToBlue" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_kik5b")
+custom_minimum_size = Vector2(64, 64)
+offset_left = 119.0
+offset_top = 76.0
+offset_right = 119.0
+offset_bottom = 76.0
