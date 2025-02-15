@@ -86,7 +86,7 @@ static func axial_neighbor(hex_coord:Vector2i, direction:Vector2i)->Vector2i:
 	return axial_add(hex_coord, direction)
 
 ## Returns the distance between two axial coordinates.
-static func axial_distance(a:Vector2i, b:Vector2i)->Vector2i:
+static func axial_distance(a:Vector2, b:Vector2)->int:
 	var vec = axial_subtract(a, b)
 	return (abs(vec.x)
 		+ abs(vec.x + vec.y)
@@ -105,7 +105,7 @@ static func cube_subtract(a: Vector3i, b: Vector3i)->Vector3i:
 	return Vector3i(a.x - b.x, a.y - b.y, a.z - b.z)
 
 ## Returns the distance between two cube coordinates.
-static func cube_distance(a: Vector3i, b: Vector3i):
+static func cube_distance(a: Vector3i, b: Vector3i)->int:
 	var vec = cube_subtract(a, b)
 	return (abs(vec.x) + abs(vec.y) + abs(vec.z)) / 2
 
