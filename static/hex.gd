@@ -22,16 +22,16 @@ static var AXIAL_DIRECTION : Array = [Vector2i(-1, 1),Vector2i(0, 1), Vector2i(1
 
 ## Converts coordinate system from cube to axial.
 static func cube_to_axial(cube:Vector3i)->Vector2i:
-	var q = cube.x
-	var r = cube.y
+	var q: int = cube.x
+	var r: int = cube.y
 	return Vector2i(q, r)
 
 
 ## Converts coordinate system from axial to cube.
 static func axial_to_cube(hex:Vector2i)->Vector3i:
-	var q = hex.x
-	var r = hex.y
-	var s = -q-r
+	var q: int = hex.x
+	var r: int = hex.y
+	var s: int = -q-r
 	return Vector3i(q, r, s)
 
 
@@ -39,8 +39,8 @@ static func axial_to_cube(hex:Vector2i)->Vector3i:
 static func axial_to_oddq(coord:Vector2i)->Vector2i:
 	if coord == Vector2i.ZERO:
 		return Vector2i.ZERO
-	var col = coord.x # x -> q | y -> r
-	var row = coord.y + (coord.x - (coord.x&1)) / 2
+	var col: int = coord.x # x -> q | y -> r
+	var row: int = coord.y + (coord.x - (coord.x&1)) / 2
 	return Vector2i(col, row)
 
 
@@ -48,8 +48,8 @@ static func axial_to_oddq(coord:Vector2i)->Vector2i:
 static func oddq_to_axial(coord:Vector2i)->Vector2i:
 	if coord == Vector2i.ZERO:
 		return Vector2i.ZERO
-	var q = coord.x # x->column | y->row
-	var r = coord.y - (coord.x - (coord.x&1)) / 2
+	var q: int = coord.x # x->column | y->row
+	var r: int = coord.y - (coord.x - (coord.x&1)) / 2
 	return Vector2i(q, r)
 
 
@@ -87,7 +87,7 @@ static func axial_neighbor(hex_coord:Vector2i, direction:Vector2i)->Vector2i:
 
 ## Returns the distance between two axial coordinates.
 static func axial_distance(a:Vector2i, b:Vector2i)->Vector2i:
-	var vec = axial_subtract(a, b)
+	var vec: Vector2i = axial_subtract(a, b)
 	return (abs(vec.x)
 		+ abs(vec.x + vec.y)
 		+ abs(vec.y)) / 2
@@ -105,8 +105,8 @@ static func cube_subtract(a: Vector3i, b: Vector3i)->Vector3i:
 	return Vector3i(a.x - b.x, a.y - b.y, a.z - b.z)
 
 ## Returns the distance between two cube coordinates.
-static func cube_distance(a: Vector3i, b: Vector3i):
-	var vec = cube_subtract(a, b)
+static func cube_distance(a: Vector3i, b: Vector3i) -> int:
+	var vec: Vector3i = cube_subtract(a, b)
 	return (abs(vec.x) + abs(vec.y) + abs(vec.z)) / 2
 
 #endregion
@@ -120,9 +120,9 @@ static func cube_distance(a: Vector3i, b: Vector3i):
 ## [br][br]
 ## [url]https://www.redblobgames.com/grids/hexagons/#rotation[/url]
 static func get_rotation_steps(from_dir: DIR, to_dir: DIR) -> int:
-	var total_directions = Hex.DIR.size()
+	var total_directions: int = Hex.DIR.size()
 	# Difference between the given directions.
-	var diff = to_dir - from_dir
+	var diff: int = to_dir - from_dir
 	diff = wrapi(diff, 0, total_directions)
 	# If the difference is larger than half the amount of directions, the shorter path
 	# is counter clockwise.

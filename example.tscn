@@ -32,3 +32,24 @@ offset_left = 119.0
 offset_top = 76.0
 offset_right = 119.0
 offset_bottom = 76.0
+
+[node name="Button1" type="Button" parent="."]
+offset_left = 17.0
+offset_top = 168.0
+offset_right = 71.0
+offset_bottom = 199.0
+text = "Test 1"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 17.0
+offset_top = 206.0
+offset_right = 71.0
+offset_bottom = 237.0
+text = "Test 2"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 17.0
+offset_top = 244.0
+offset_right = 71.0
+offset_bottom = 275.0
+text = "Test 3"
