@@ -36,3 +36,15 @@ static func to_vec3_xy(vector: Vector2, z: float = 0.0) -> Vector3:
 ## Converts a [Vector2] to [Vector3] where the y-value becomes the z-value.
 static func to_vec3_xz(vector: Vector2, y: float = 0.0) -> Vector3:
 	return Vector3(vector.x, y, vector.y)
+	
+## Convenience method to produce [Vector2] from a [Vector3], discarding y.
+## E.g. [code]vec3_to_vec2(Vector3(0.5, 1.0, 0.8))[/code] will return a [code]Vector2(0.5, 0.8)[/code]
+static func from_vec3_xz(vec3: Vector3) -> Vector2:
+	return Vector2(vec3.x, vec3.z);
+
+
+#TODO: rename this class to a more generic Vector class, or move to a new Vec3 util class?
+## Convenience method to reset the y value of a vector3 inline, optionally setting it to a specific value
+## E.g. [code]vec3_reset_y(Vector3(0.5, 42.0, 0.8))[/code] will return a [code]Vector3(0.5, 0.0, 0.8)[/code]
+static func vec3_reset_y(vec3: Vector3, y: float = 0.0) -> Vector3:
+	return Vector3(vec3.x, y, vec3.z);
