@@ -20,12 +20,19 @@ func _ready() -> void:
 	demo_function(Arr.sort_keys_by_values.bind({"a": 3, "b": 6, "c": 2, "d": 7}, false), "Arr")
 	demo_function(Arr.normalize_values.bind({"Sword": 1.5, "Trash": 3.0, "Treasure": 0.5}), "Arr")
 
-	demo_function(Random.random_angle, "Random")
-	demo_function(Random.random_direction, "Random")
-	demo_function(Random.pick_key_by_probabilities.bind({ "Sword": 0.3, "Trash": 0.6, "Treasure": 0.1 }, true), "Random")
+	demo_function(RandomUtil.random_angle, "RandomUtil")
+	demo_function(RandomUtil.random_direction, "RandomUtil")
+	demo_function(RandomUtil.pick_key_by_probabilities.bind({ "Sword": 0.3, "Trash": 0.6, "Treasure": 0.1 }, true), "RandomUtil")
 
-	demo_function(Strings.get_var_name.bind(self), "Strings")
+	demo_function(StringUtil.get_var_name.bind(self), "StringUtil")
 	
+	demo_function(NodeUtil.collect_nodes_in_children.bind(get_tree().root, is_base_button), "NodeUtil")
+	var buttons: Array[CanvasItem]
+	buttons.assign(NodeUtil.collect_nodes_in_children(self, is_base_button))
+	demo_function(NodeUtil.set_visible_only.bind(buttons[0], buttons as Array[CanvasItem]), "NodeUtil")
+
+	demo_function(TimeUtil.timestamp.bind(true), "TimeUtil")
+
 func demo_function(f: Callable, static_class_name: String) -> void:
 	var args: String = ", ".join(f.get_bound_arguments().map(as_string))
 	args = with_rich_color(args, ARGS_COLOR)
@@ -39,4 +46,9 @@ func with_rich_color(str: String, color: Color) -> String:
 	return "[color=\""+color.to_html()+"\"]" + str + "[/color]"
 	
 func as_string(obj: Variant) -> String:
-	return ("'" + obj + "'") if obj is String else str(obj)
+	if obj == null:
+		return "void"
+	return ("\"" + obj + "\"") if obj is String else str(obj)
+
+static func is_base_button(node: Node) -> bool:
+	return node is BaseButton

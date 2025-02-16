@@ -4,3 +4,24 @@
 
 [node name="Example" type="Node"]
 script = ExtResource("1_gc22w")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 18.0
+offset_top = 13.0
+offset_right = 76.0
+offset_bottom = 36.0
+text = "Test1"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 18.0
+offset_top = 46.0
+offset_right = 76.0
+offset_bottom = 69.0
+text = "Test2"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 18.0
+offset_top = 79.0
+offset_right = 76.0
+offset_bottom = 102.0
+text = "Test3"
