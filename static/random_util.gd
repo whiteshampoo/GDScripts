@@ -1,4 +1,4 @@
-class_name Random extends Object
+class_name RandomUtil extends Object
 
 ## Returns a Vector2 with a random direction.
 static func random_direction() -> Vector2:

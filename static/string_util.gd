@@ -1,4 +1,4 @@
-class_name Strings extends Node
+class_name StringUtil extends Node
 
 ## Infers a name from the given variant and returns it as String
 static func get_var_name(obj: Variant) -> String:
