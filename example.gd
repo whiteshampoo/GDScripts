@@ -27,6 +27,7 @@ func _ready() -> void:
 	demo_function(StringUtil.get_var_name.bind(self), "StringUtil")
 	
 	demo_function(NodeUtil.collect_nodes_in_children.bind(get_tree().root, is_base_button), "NodeUtil")
+	
 	var buttons: Array[CanvasItem]
 	buttons.assign(NodeUtil.collect_nodes_in_children(self, is_base_button))
 	demo_function(NodeUtil.set_visible_only.bind(buttons[0], buttons as Array[CanvasItem]), "NodeUtil")
