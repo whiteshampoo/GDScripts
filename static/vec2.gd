@@ -10,5 +10,5 @@ static func value_mean(vector: Vector2) -> float:
 
 ## Calculates the lerp between the x- and y-value by weight.
 ## [codeblock lang=gdscript]Vec2.value_lerp(Vector2(-1.0, 1.0), 0.75) # -> 0.5[/codeblock]
-static func value_lerp(vector: Vector2, weight) -> float:
+static func value_lerp(vector: Vector2, weight: float) -> float:
 	return lerp(vector.x, vector.y, weight)
