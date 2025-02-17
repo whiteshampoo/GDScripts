@@ -8,17 +8,18 @@ var RESULT_COLOR: Color = Color.html("f989c7")
 
 # This is a test-scene and may have random content
 
+func test_callback(volume: float) -> void:
+	print("new value: ", volume)
+
 func _ready() -> void:
-	print(Vec2.value_mean(Vector2.RIGHT))
-	print(Vec2.value_lerp(Vector2(-1.0, 1.0), 0.75))
-	print(Arr.occurrences([1, 2, 3, 2, 2, 4, 4, 4]))
+	return
 
 	demo_function(Vec2.value_mean.bind(Vector2.RIGHT), "Vec2")
 	demo_function(Vec2.value_lerp.bind(Vector2(-1.0, 1.0), 0.75), "Vec2")
 
 	demo_function(Arr.occurrences.bind([1, 2, 3, 2, 2, 4, 4, 4]), "Arr")
-	demo_function(Arr.sort_keys_by_values.bind({"a": 3, "b": 6, "c": 2, "d": 7}, false), "Arr")
-	demo_function(Arr.normalize_values.bind({"Sword": 1.5, "Trash": 3.0, "Treasure": 0.5}), "Arr")
+	#demo_function(Arr.sort_keys_by_values.bind({"a": 3, "b": 6, "c": 2, "d": 7}, false), "Arr")
+	#demo_function(Arr.normalize_values.bind({"Sword": 1.5, "Trash": 3.0, "Treasure": 0.5}), "Arr")
 
 	demo_function(RandomUtil.random_angle, "RandomUtil")
 	demo_function(RandomUtil.random_direction, "RandomUtil")

@@ -17,7 +17,7 @@ static func random_angle() -> float:
 ## - 10% probability to return [code]"Treasure"[/code].[br]
 ## May return [code]null[/code] if the dictionary is empty or not normalized.
 static func pick_key_by_probabilities(probabilities: Dictionary, is_normalized: bool = false) -> Variant:
-	var probabilities_to_use: Dictionary = probabilities if is_normalized else Arr.normalize_values(probabilities)
+	var probabilities_to_use: Dictionary = probabilities if is_normalized else Dict.normalize_values(probabilities)
 	var rand_value: float = randf()
 	var accu_sum: float = 0;
 	for key: Variant in probabilities_to_use.keys():

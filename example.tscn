@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://yner40qx8v64"]
+[gd_scene load_steps=8 format=3 uid="uid://yner40qx8v64"]
 
 [ext_resource type="Script" path="res://example.gd" id="1_gc22w"]
 [ext_resource type="Shader" path="res://shader/canvas_item/gradient/simple_gradient_left_to_right.gdshader" id="2_typqp"]
 [ext_resource type="Shader" path="res://shader/canvas_item/gradient/simple_gradient_top_to_bottom.gdshader" id="3_6vmkr"]
+[ext_resource type="Script" path="res://node/audio_bus_manager/volume_slider.gd" id="4_6vepo"]
+[ext_resource type="Script" path="res://node/audio_bus_manager/mute_button.gd" id="5_jgisy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3j7ss"]
 shader = ExtResource("2_typqp")
@@ -53,3 +55,69 @@ offset_top = 244.0
 offset_right = 71.0
 offset_bottom = 275.0
 text = "Test 3"
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = 336.0
+offset_top = 76.0
+offset_right = 689.0
+offset_bottom = 92.0
+script = ExtResource("4_6vepo")
+bus = &"Bus_A"
+
+[node name="HSlider2" type="HSlider" parent="."]
+offset_left = 311.0
+offset_top = 119.0
+offset_right = 664.0
+offset_bottom = 135.0
+script = ExtResource("4_6vepo")
+bus = &"Bus_A"
+
+[node name="HSlider3" type="HSlider" parent="."]
+offset_left = 329.0
+offset_top = 148.0
+offset_right = 682.0
+offset_bottom = 164.0
+script = ExtResource("4_6vepo")
+bus = &"Bus_B"
+
+[node name="HSlider4" type="HSlider" parent="."]
+offset_left = 332.0
+offset_top = 178.0
+offset_right = 685.0
+offset_bottom = 194.0
+script = ExtResource("4_6vepo")
+bus = &"Bus_B"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+offset_left = 700.0
+offset_top = 69.0
+offset_right = 744.0
+offset_bottom = 93.0
+script = ExtResource("5_jgisy")
+bus = &"Bus_A"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 678.0
+offset_top = 100.0
+offset_right = 775.0
+offset_bottom = 141.0
+text = "Mute"
+script = ExtResource("5_jgisy")
+bus = &"Bus_A"
+
+[node name="CheckButton2" type="CheckButton" parent="."]
+offset_left = 697.0
+offset_top = 144.0
+offset_right = 741.0
+offset_bottom = 168.0
+script = ExtResource("5_jgisy")
+bus = &"Bus_B"
+
+[node name="Button4" type="Button" parent="."]
+offset_left = 693.0
+offset_top = 169.0
+offset_right = 790.0
+offset_bottom = 210.0
+text = "Mute"
+script = ExtResource("5_jgisy")
+bus = &"Bus_B"
