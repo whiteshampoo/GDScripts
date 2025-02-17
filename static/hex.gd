@@ -86,7 +86,8 @@ static func axial_neighbor(hex_coord:Vector2i, direction:Vector2i)->Vector2i:
 	return axial_add(hex_coord, direction)
 
 ## Returns the distance between two axial coordinates.
-static func axial_distance(a:Vector2i, b:Vector2i)->Vector2i:
+
+static func axial_distance(a:Vector2, b:Vector2)->int:
 	var vec: Vector2i = axial_subtract(a, b)
 	return (abs(vec.x)
 		+ abs(vec.x + vec.y)
@@ -105,7 +106,7 @@ static func cube_subtract(a: Vector3i, b: Vector3i)->Vector3i:
 	return Vector3i(a.x - b.x, a.y - b.y, a.z - b.z)
 
 ## Returns the distance between two cube coordinates.
-static func cube_distance(a: Vector3i, b: Vector3i) -> int:
+static func cube_distance(a: Vector3i, b: Vector3i)->int:
 	var vec: Vector3i = cube_subtract(a, b)
 	return (abs(vec.x) + abs(vec.y) + abs(vec.z)) / 2
 
@@ -149,5 +150,31 @@ static func rotate(vec: Vector3i,rotation_steps:int)->Vector3i:
 			vec = rotate_counter_clockwise(vec)
 	return vec
 	
+
+#endregion
+
+
+#region RANGE
+
+## Returns coordinates in range of a given axial coordinate.
+static func cells_in_range_axial(of_axial_position:Vector2i,cell_range:int)->Array[Vector2i]:
+	var cells : Array[Vector2i] = []
+	var q = -cell_range
+	while q <= cell_range:
+		var r = max(-cell_range, -q-cell_range)
+		while r <= min(cell_range,-q+cell_range):
+			cells.append(Hex.axial_add(of_axial_position,Vector2i(q,r)))
+			r+=1
+		q+=1 
+	return cells
+
+## Returns coordinates in range of a given oddq coordinate.
+static func cells_in_range_oddq(of_oddq_position:Vector2i,cell_range:int)->Array[Vector2i]:
+	var of_position_axial = Hex.oddq_to_axial(of_oddq_position)
+	var cells = cells_in_range_axial(of_position_axial,cell_range)
+	for i in range(cells.size()):
+		cells[i] = Hex.axial_to_oddq(cells[i])
+	return cells
+
 
 #endregion

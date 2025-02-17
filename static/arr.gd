@@ -15,6 +15,14 @@ static func occurrences(array: Array) -> Dictionary:
 	return dict
 
 
+## Appends a value to an array if the array does not yet contain the value.
+static func append_distinct(arr: Array, val: Variant) -> Array:
+	if arr.has(val):
+		return arr
+	arr.append(val)
+	return arr
+
+
 ## Sorts the keys of the provided dict by the values and returns an array of the sorted keys.
 ## Expects a comparable type for the value of the dictionary, such as int or float.
 ## Ordering of keys with equal values may be random.

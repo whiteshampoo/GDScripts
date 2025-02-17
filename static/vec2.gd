@@ -36,6 +36,29 @@ static func to_vec3_xy(vector: Vector2, z: float = 0.0) -> Vector3:
 ## Converts a [Vector2] to [Vector3] where the y-value becomes the z-value.
 static func to_vec3_xz(vector: Vector2, y: float = 0.0) -> Vector3:
 	return Vector3(vector.x, y, vector.y)
+
+
+## Sorts a given array of vectors by distance to [code]origin[/code]. Use [code]closest_first[/code] to define the order in which the arrays are returned.
+static func sort_vectors_by_distance(vector_array: Array[Vector2], origin: Vector2, closest_first: bool = true)->Array[Vector2]:
+	var sorted_array: Array[Vector2] = vector_array.duplicate()
+	if closest_first:
+		sorted_array.sort_custom(_sort_closer.bind(origin))
+	else:
+		sorted_array.sort_custom(_sort_further.bind(origin))
+	return sorted_array
+
+
+## Used by [member sort_vectors_by_distance]
+static func _sort_closer(a: Vector2, b: Vector2, origin: Vector2)->bool:
+	# The function should return true if the first element should be moved behind the second one, otherwise it should return false.
+	return a.distance_squared_to(origin) < b.distance_squared_to(origin)
+
+
+## Used by [member sort_vectors_by_distance]
+static func _sort_further(a: Vector2, b: Vector2, origin: Vector2)->bool:
+	# The function should return true if the first element should be moved behind the second one, otherwise it should return false.
+	return a.distance_squared_to(origin) > b.distance_squared_to(origin)
+
 	
 ## Convenience method to produce [Vector2] from a [Vector3], discarding y.
 ## E.g. [code]vec3_to_vec2(Vector3(0.5, 1.0, 0.8))[/code] will return a [code]Vector2(0.5, 0.8)[/code]
