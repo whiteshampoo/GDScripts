@@ -1,5 +1,5 @@
 class_name NodeConnectionChecker
-extends Object
+
 
 ## Info object for a single signal connection
 class ConnectionInfo:

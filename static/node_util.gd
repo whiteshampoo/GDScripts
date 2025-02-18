@@ -1,4 +1,4 @@
-class_name NodeUtil extends Node
+class_name NodeUtil
 
 ## Convenience method to make all canvas items in [code]invisible_nodes[/code] invisible
 ## and make [code]visible_node[/code] visible. E.g. helpful for navigating different menus.
