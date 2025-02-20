@@ -7,12 +7,12 @@ extends Button
 
 
 func _ready() -> void:
-	if not FileAccess.file_exists(scene):
+	if not ResourceLoader.exists(scene, "PackedScene"):
 		push_warning("File '%s' does not exist" % scene)
 
 
 func _pressed() -> void:
-	if not FileAccess.file_exists(scene):
+	if not ResourceLoader.exists(scene, "PackedScene"):
 		push_error("File '%s' does not exist" % scene)
 		return
 	get_tree().change_scene_to_file(scene)
