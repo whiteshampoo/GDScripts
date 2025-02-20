@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://butwyq55vlmfm"]
+
+[ext_resource type="Script" uid="uid://k5js1rsfwjwe" path="res://loading_screen.gd" id="1_htrc2"]
+[ext_resource type="Texture2D" uid="uid://dvvb1nhgjx7t8" path="res://icon.svg" id="1_mggpi"]
+
+[node name="LoadingScreen" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_htrc2")
+
+[node name="Background" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mggpi")
+stretch_mode = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.95
+anchor_right = 0.95
+anchor_bottom = 0.95
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 1.0
