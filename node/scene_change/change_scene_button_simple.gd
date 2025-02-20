@@ -9,7 +9,6 @@ extends Button
 func _ready() -> void:
 	if not FileAccess.file_exists(scene):
 		push_warning("File '%s' does not exist" % scene)
-	pressed.connect(_pressed)
 
 
 func _pressed() -> void:
