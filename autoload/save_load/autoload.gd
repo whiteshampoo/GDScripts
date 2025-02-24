@@ -5,6 +5,8 @@ class_name Autoload extends Node
 ## Call [code]super._ready()[/code] in a script extending this class to register the node in the SaveLoad singleton and you're done.
 
 
+@onready var singleton: Node = get_node_or_null("/root/SaveLoad")
+
 ## Used to save data to disk and/or set default values.
 ## Required for registering in [SaveLoad].
 var save_data: AutoloadData :
@@ -20,7 +22,9 @@ var save_data: AutoloadData :
 
 
 func _ready()->void:
-	SaveLoad.register_node(self)
+	if !singleton:
+		return
+	singleton.register_node(self)
 
 
 ## Returns the same data structure as [member Node.get_property_list] except it only contains exported properties. This is determined by the property's "usage" value being 4120.
