@@ -15,11 +15,6 @@ run/main_scene="res://example.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-SaveLoad="*res://autoload/save_load/save_load.gd"
-TestAutoload="*res://autoload/save_load/test_autoload.gd"
-
 [debug]
 
 gdscript/warnings/untyped_declaration=2

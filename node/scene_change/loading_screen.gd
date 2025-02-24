@@ -18,7 +18,8 @@ func _ready() -> void:
 	if ResourceLoader.has_cached(scene):
 		background.hide()
 		progress_bar.hide()
-		get_tree().change_scene_to_packed(ResourceLoader.get_cached_ref(scene))
+		#get_tree().change_scene_to_packed(ResourceLoader.get_cached_ref(scene)) # 4.4
+		get_tree().change_scene_to_packed(ResourceLoader.load(scene))
 	if is_instance_valid(texture):
 		background.texture = texture
 		background.expand_mode = expand_mode

@@ -14,6 +14,7 @@ func test_callback(volume: float) -> void:
 func _ready() -> void:
 	return
 
+	@warning_ignore("unreachable_code")
 	demo_function(Vec2.value_mean.bind(Vector2.RIGHT), "Vec2")
 	demo_function(Vec2.value_lerp.bind(Vector2(-1.0, 1.0), 0.75), "Vec2")
 
