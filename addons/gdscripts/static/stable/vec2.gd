@@ -7,7 +7,7 @@ static func random(min_length: float = 0.0, max_length: float = 1.0, min_angle: 
 	return Vector2.from_angle(randf_range(min_angle, max_angle)) * randf_range(min_length, max_length)
 
 
-## Creates a random, normalized (length == 1.0) [Vector2]
+## Creates a random, normalizegit ad (length == 1.0) [Vector2]
 static func random_normalized(min_angle: float = 0.0, max_angle: float = TAU) -> Vector2:
 	return Vector2.from_angle(randf_range(min_angle, max_angle))
 

@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://yner40qx8v64"]
 
-[ext_resource type="Script" path="res://example.gd" id="1_gc22w"]
-[ext_resource type="Shader" path="res://addons/gdscripts/shader/stable/canvas_item/gradient/simple_gradient_left_to_right.gdshader" id="2_typqp"]
-[ext_resource type="Shader" path="res://addons/gdscripts/shader/stable/canvas_item/gradient/simple_gradient_top_to_bottom.gdshader" id="3_6vmkr"]
-[ext_resource type="Script" path="res://addons/gdscripts/templates/wip/audio/volume_slider.gd" id="4_6vepo"]
-[ext_resource type="Script" path="res://addons/gdscripts/templates/wip/audio/mute_button.gd" id="5_jgisy"]
+[ext_resource type="Script" uid="uid://dds6q5qrgwwur" path="res://example.gd" id="1_gc22w"]
+[ext_resource type="Shader" uid="uid://c8g27yls4nfkt" path="res://addons/gdscripts/shader/stable/canvas_item/gradient/simple_gradient_left_to_right.gdshader" id="2_typqp"]
+[ext_resource type="Shader" uid="uid://bqlm16fjer1ro" path="res://addons/gdscripts/shader/stable/canvas_item/gradient/simple_gradient_top_to_bottom.gdshader" id="3_6vmkr"]
+[ext_resource type="Script" uid="uid://deukyl58a36f0" path="res://addons/gdscripts/templates/wip/audio/volume_slider.gd" id="4_6vepo"]
+[ext_resource type="Script" uid="uid://dr87n1wx0s6l0" path="res://addons/gdscripts/templates/wip/audio/mute_button.gd" id="5_jgisy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3j7ss"]
 shader = ExtResource("2_typqp")
