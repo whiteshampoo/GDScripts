@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://butwyq55vlmfm"]
 
-[ext_resource type="Script" uid="uid://p1y6o83uha5q" path="res://addons/gdscripts/templates/wip/scene_change/loading_screen.gd" id="1_htrc2"]
+[ext_resource type="Script" uid="uid://p1y6o83uha5q" path="res://addons/gdscripts_wip/templates/scene_change/loading_screen.gd" id="1_htrc2"]
 [ext_resource type="Texture2D" uid="uid://c42nhgkrsqvsh" path="res://icon.svg" id="1_mggpi"]
 
 [node name="LoadingScreen" type="ColorRect"]
