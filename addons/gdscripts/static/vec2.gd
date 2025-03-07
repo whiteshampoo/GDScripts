@@ -3,7 +3,7 @@ class_name Vec2
 
 
 ## Creates a random [Vector2] based on length and angle
-static func random_angle(min_length: float = 0.0, max_length: float = 1.0, min_angle: float = 0.0, max_angle: float = TAU) -> Vector2:
+static func random_circle(min_length: float = 0.0, max_length: float = 1.0, min_angle: float = 0.0, max_angle: float = TAU) -> Vector2:
 	return Vector2.from_angle(randf_range(min_angle, max_angle)) * randf_range(min_length, max_length)
 
 
