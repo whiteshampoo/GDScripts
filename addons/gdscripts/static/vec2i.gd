@@ -1,5 +1,5 @@
 class_name Vec2i
-## Useful methods to do stuff with Vector2i
+## Useful methods to do stuff with [Vector2i]
 
 const ZERO: Array[Vector2i] = [Vector2i.ZERO]
 const STRAIGHT: Array[Vector2i] = [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]
