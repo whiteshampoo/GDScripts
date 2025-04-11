@@ -14,7 +14,7 @@ static func random_box(x_min: float = -1.0, x_max: float = 1.0, y_min: float = -
 
 ## Creates a random [Vector2] based on start- and end-vector
 static func random_box_vec(start: Vector2, end: Vector2) -> Vector2:
-	return Vector2(randf_range(start.x, end.y), randf_range(start.y, end.y))
+	return Vector2(randf_range(start.x, end.x), randf_range(start.y, end.y))
 
 
 ## Creates a random [Vector2] based on a [Rect2]
