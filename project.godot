@@ -14,11 +14,6 @@ config/name="GDScripts"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-SaveLoad="*res://autoload/save_load/save_load.gd"
-TestAutoload="*res://autoload/save_load/test_autoload.gd"
-
 [debug]
 
 gdscript/warnings/untyped_declaration=2
